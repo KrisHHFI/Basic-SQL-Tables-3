@@ -19,6 +19,19 @@ SELECT *
 FROM Employee
 ORDER by EmployeeID
 
+-- Returns all the employees and the floor where the company is situated
+SELECT Employee.EmployeeID, Employee.FirstName, Employee.LastName, Employee.CompanyName, Tenant.FloorNumber 
+FROM Employee
+JOIN Tenant ON (Tenant.CompanyName = Employee.CompanyName)
+ORDER by EmployeeID
+
+-- Returns the employees working on floor 4
+SELECT Employee.EmployeeID, Employee.FirstName, Employee.LastName, Employee.CompanyName, Tenant.FloorNumber 
+FROM Employee
+JOIN Tenant ON (Tenant.CompanyName = Employee.CompanyName)
+WHERE Tenant.FloorNumber = 4
+ORDER by CompanyName
+
 -- Returns the companies which contain a "z"
 SELECT *
 FROM Company
